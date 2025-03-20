@@ -1,15 +1,50 @@
 import React, { useState }from "react";
+import ReactDOM from 'react-dom';
+
+    
+export const FeedbackFormPortal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+    const portalRoot = document.getElementById('portal');
+    return ReactDOM.createPortal(
+      <FeedBackForm onClose={onClose} />,
+      portalRoot
+    )
+}
 
 const FeedBackForm = ({ onClose }) => {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Отправлено: ', {name, message});
         alert(`Спасибо, ${name}! Ваше сообщение отправлено.`);
-        onCLose();
+        onClose();
     }
+
+
+    const overlayStyle = {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    };
+    
+    
+    const formStyle = {
+        backgroundColor: '#ffe5cc',
+        padding: '20px',
+        borderRadius: '8px',
+        maxWidth: '400px',
+        width: '100%',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+    };
 
     return(
         <div className="feedback-form-overlay" style={overlayStyle}>
@@ -26,6 +61,18 @@ const FeedBackForm = ({ onClose }) => {
                             className="form-control border-0 rounded-2"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required 
+                        />
+                        <br/>
+                        <label htmlFor="message" className="form-label text-dark">
+                            message
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            className="form-control border-0 rounded-2"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
                             required 
                         />
                     </div>

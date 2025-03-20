@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import { useState } from 'react'
 import { Routes, Route } from "react-router-dom";
 import Header from './components/Header'
@@ -11,33 +12,26 @@ import Register from "./pages/Register"
 import CategoryProduct from "./pages/CategoryProducts"
 import reactLogo from './assets/react.svg'
 import './App.css'
-import './components/FeedBackForm.jsx';
+import FeedBackForm from './components/FeedBackForm.jsx';
+import FeedBackFormPortal from './components/FeedBackForm.jsx';
 
 function App() {
   const [isFormOpen, setisFormOpen] = useState(false);
   const openForm = () => setisFormOpen(true);
   const closeForm = () => setisFormOpen(false);
 
-  const FeedbackFormPortal = ({ isOpen, onClose }) => {
-    if (!isOpen) return null;
-    const portalRoot = document.getElementById('portal');
-    return ReactDOM.createPortal(
-      <FeedbackForm onClose={onClose} />,
-      portalRoot
-    )
-  }
-
   return (
     <CartProvider>
     <Header>
-      <div className='form_container'>
+      
+    </Header>
+    <div className='form_container'>
         <button className='btn btn-secondary'
          onClick={openForm}>
           Открыть форму обратной связи
         </button>
       </div>
-      <FeedbackFormPortal isOpen={isFormOpen} onClose={closeForm} />
-    </Header>
+      <FeedBackFormPortal isOpen={isFormOpen} onClose={closeForm} />
     <Routes>
         <Route path="/Catalog" element={<Catalog />}></Route>
         <Route path="/Product/:id" element={<Product />}></Route>
