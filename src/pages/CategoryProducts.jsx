@@ -49,7 +49,7 @@ function CategoryProducts() {
                         <h5>{product.name}</h5>
                         <p>{product.description}</p>
                         <p>Цена: {product.price}$</p>
-                        <img src={product.product_img} alt="" width="200px" height="200px" />
+                        <img src={product.product_img} alt="pikcha" width="200px" height="200px" />
                         <div>
                             <button onClick={() => addToCart(product)}>Добавить в корзину</button>
                         </div>

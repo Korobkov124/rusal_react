@@ -42,6 +42,7 @@ function Cart() {
                     {cartItems.map((item) => (
                         <li key={item.id}>
                             <h2>{item.name}</h2>
+                            <img src={item.product_img} alt="cartinka" width="200px" height="200px" />
                             <p>{item.prcie} x {item.quantity}</p>
                             <button onClick={() => removeFromCart(item.id)}>Удалить</button>
                         </li>
