@@ -2,7 +2,7 @@ import React, { useState }from "react";
 import ReactDOM from 'react-dom';
 
     
-export const FeedbackFormPortal = ({ isOpen, onClose }) => {
+const FeedbackFormPortal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
     const portalRoot = document.getElementById('portal');
     return ReactDOM.createPortal(
@@ -88,4 +88,4 @@ const FeedBackForm = ({ onClose }) => {
     )
 }
 
-export default FeedBackForm;
+export default FeedbackFormPortal;
