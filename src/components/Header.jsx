@@ -12,12 +12,10 @@ function Header() {
             <Link to="/Home">Главная</Link>
             <Link to="/catalog">Каталог</Link>
             <Link to="/cart">Корзина</Link>
-            <div className='form_container'>
-                <button className='btn btn-secondary' onClick={openForm}>
+                <button className="button1" onClick={openForm}>
                         Cвязь
                 </button>
                 <FeedBackFormPortal isOpen={isFormOpen} onClose={closeForm} />
-            </div>
         </nav>
     );
 }

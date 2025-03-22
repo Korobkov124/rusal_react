@@ -37,8 +37,10 @@ function Catalog() {
             <ul>
                 {categories.map((category) => (
                     <li key={category.id}>
-                        <img src={category.category_img} alt="cartinka!" width="200px" height="200px"/>
-                        <Link to={`/category/${category.id}`}>{category.name}</Link>
+                        <Link className="img_block_2" to={`/category/${category.id}`}>
+                            <img src={category.category_img} alt="cartinka!" width="350px" height="350px" style={{borderRadius: 40}}/>
+                            <h1 className="h1_for_button">{category.name}</h1>
+                        </Link>
                     </li>
                 ))}
             </ul>

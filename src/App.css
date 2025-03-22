@@ -29,10 +29,22 @@ html, body {
   margin-bottom: 20px;
 }
 
+.feedback_form{
+  width: 750px;
+  height: 750px;
+  background-color: white;
+}
+
+.feedback_form_1{
+  width: 750px;
+  height: 750px;
+  background-color: white;
+}
+
 #header {
   width: 80%;
   background-color: #f8f9fa00;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -46,11 +58,36 @@ html, body {
   padding: 10px;
 }
 
-.img_block{
-  width: 250px;
-  height: 250px;
+.img_block, .img_block_2{
+  display: block;
+  width: 350px;
+  height: 350px;
   border: 1px rgba(255, 0, 0, 0);
-  border-radius: 20%;
+  border-radius: 15%;
   padding: 20px;
   box-shadow: 5px 5px 5px rgba(17, 151, 10, 0.482);
+  
+}
+
+
+.img_block_2{
+  position: relative;
+}
+
+ul, #produccts{
+  list-style: none;
+  margin-top: 1 0px;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 100px;
+}
+
+.h1_for_button {
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
 }
