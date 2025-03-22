@@ -15,31 +15,25 @@ import FeedBackForm from './components/FeedBackForm.jsx';
 import FeedBackFormPortal from './components/FeedBackForm.jsx';
 
 function App() {
-  const [isFormOpen, setisFormOpen] = useState(false);
-  const openForm = () => setisFormOpen(true);
-  const closeForm = () => setisFormOpen(false);
 
   return (
     <CartProvider>
-    <Header />
-    <div className='form_container'>
-        <button className='btn btn-secondary'
-         onClick={openForm}>
-          Открыть форму обратной связи
-        </button>
+      <div className="app-container">
+        <Header />
+        <div className='main-content'>
+          <Routes>
+            <Route path="/Catalog" element={<Catalog />} />
+            <Route path="/Product/:id" element={<Product />} />
+            <Route path="/Category/:id" element={<CategoryProduct />} />
+            <Route path="/Cart" element={<Cart />} />
+            <Route path="/Register" element={<Register />} />
+            <Route path="/Home" element={<Home />} />
+            <Route path='/' element={<Autho />} />
+            <Route path="*" element={<h1>404</h1>} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <FeedBackFormPortal isOpen={isFormOpen} onClose={closeForm} />
-    <Routes>
-        <Route path="/Catalog" element={<Catalog />}></Route>
-        <Route path="/Product/:id" element={<Product />}></Route>
-        <Route path="/Category/:id" element={<CategoryProduct />}></Route>
-        <Route path="/Cart" element={<Cart />}></Route>
-        <Route path="/Register" element={<Register />}></Route>
-        <Route path="/Home" element={<Home />}> </Route>
-        <Route path='/' element ={<Autho />}></Route>
-        <Route path="*" element={<h1>404</h1>}></Route>
-    </Routes>
-    <Footer/>
     </CartProvider>
   );
 }
